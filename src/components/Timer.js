@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
+import { renderElapsedString } from '../helpers';
 
 export default class Timer extends Component {
     render() {
-        const elapsedString = this.props.elapsed;
+        const elapsedString = renderElapsedString(this.props.elapsed);
         return (
             <div className='ui centered card'>
                 <div className='content'>
