@@ -8,10 +8,20 @@ export default class ToggleableTimerForm extends Component {
     toggleFormState = () => {
       this.setState({isOpen: !this.state.isOpen})
     }
+    handleFormClose = () => {
+      this.setState({ isOpen: false });
+    };
+    handleFormSubmit = (timer) => {
+      this.props.onFormSubmit(timer);
+      this.handleFormClose();
+    };
     render() {
         if(this.state.isOpen){
             return (
-                <TimerForm />
+                <TimerForm 
+                  onFormSubmit={this.handleFormSubmit}
+                  onFormClose={this.handleFormClose}
+                />
             );
         }
         return (
